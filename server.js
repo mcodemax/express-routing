@@ -44,6 +44,8 @@ app.get('/mode', function(req, res, next) {
     const numsArr = operates.turnToArr(nums);
     const mode = operates.findMode(numsArr);
     
+    console.log({numsArr})
+
     if(!nums){
         throw new ExpressError(`You must pass in numbers`, 400);
     }

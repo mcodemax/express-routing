@@ -21,5 +21,5 @@ test("finds the mean of an array of numbers", function () {
 
 
 test("finds the mode", function () { 
-        expect(findMode([1,1,1,5,5,2,2,3])).toEqual('1')
+        expect(findMode([1,1,1,5,5,2,2,3])).toEqual(1)
 })

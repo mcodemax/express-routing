@@ -11,7 +11,7 @@ function turnToArr(str){
         }else if(e === '' || e.split(' ').join("") === ''){
             return 'Empty String can not be used in calculations';
         }else{
-            return parseInt(e, 10);
+            return Number(e);
         }
     });
 };
@@ -78,10 +78,11 @@ function findMode(numsArr){
         if(v > modeFreq){//this algo doesn't account if there are multiple modes
             mode = k;
             modeFreq = v;
+            console.log(mode)
         }
     }
 
-    return mode; //will return the mode as a str not an integer b/c of how keys work in js
+    return Number(mode); 
 }
 
 module.exports = { turnToArr, findMedian, findMean, findMode };
