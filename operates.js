@@ -31,6 +31,11 @@ function findMean(arr){
 }
 
 function findMedian(numsArr){
+    for(let num of numsArr){
+        if(isNaN(num)){
+            return new Error(num);
+        }
+    }
     // sort and get the middle element
 
     numsArr.sort((a, b) => a - b);
@@ -43,7 +48,38 @@ function findMedian(numsArr){
     } else {
         median = numsArr[middleIndex];
     }
-    return median
+    return median;
 }
 
-module.exports = { turnToArr, findMedian, findMean };
+/**
+ * 
+ * @returns mode or Error
+ */
+function findMode(numsArr){
+    const dict = {};
+    let modeFreq = 0;
+    let mode; //most occurances of a single number
+    
+    for(let num of numsArr){
+        if(isNaN(num)){
+            return new Error(num);
+        }
+
+        if(dict[num]){
+            dict[num]+=1;
+        }else{
+            dict[num] = 1;
+        }
+    }    
+
+    for(let [k, v] of Object.entries(dict)){
+        if(v > modeFreq){//this algo doesn't account if there are multiple modes
+            mode = k;
+            modeFreq = v;
+        }
+    }
+
+    return mode;
+}
+
+module.exports = { turnToArr, findMedian, findMean, findMode };
