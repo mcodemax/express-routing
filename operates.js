@@ -1,3 +1,5 @@
+// mean/median/mode functions to help within server routes
+
 /**turn str into an arr 
  * returns an Arr of numbers
 */
@@ -79,7 +81,7 @@ function findMode(numsArr){
         }
     }
 
-    return mode;
+    return mode; //will return the mode as a str not an integer b/c of how keys work in js
 }
 
 module.exports = { turnToArr, findMedian, findMean, findMode };
